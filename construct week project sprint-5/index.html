@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        #navbar {
+            position: fixed;
+            width: 100%;
+            top: 0px;
+            background-color: white;
+        }
+
+        #top-nav {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 3px 0px;
+
+        }
+
+        #top-nav+main {
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            height: 70px;
+
+        }
+
+        #nav-left {
+            width: 60%;
+            float: left;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        #nav-left a {
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #4f3267;
+        }
+
+        #nav-left a:hover {
+            color: rgb(214, 85, 85);
+            text-decoration: underline;
+        }
+
+        #nav-left>img {
+
+            padding: 0 1rem;
+        }
+
+        #nav-right {
+            height: 60px;
+            width: 38%;
+            float: right;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+
+        }
+
+        #nav-right img {
+            width: 100%;
+            height: 33px;
+            border-radius: 50%;
+        }
+
+        #nav-right>div {
+            padding: 0 1rem;
+        }
+
+        form .fa-sharp {
+            background: linear-gradient(to right, rgb(222, 87, 229), rgb(136, 99, 251));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        form input {
+            padding: 0.3rem 1rem;
+
+        }
+
+        nav {
+            height: 22px;
+
+            display: flex;
+            padding: 0.7rem 0px;
+            justify-content: center;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+        }
+
+        nav>div {
+            margin: 0px 1.5rem;
+
+            padding: 0.5rem 0px;
+            position: relative;
+
+        }
+
+        nav>div>a {
+            text-decoration: none;
+            font-size: 0.7rem;
+            color: black;
+        }
+
+
+
+        nav>div::after {
+            transition: all 1s linear;
+            /* border-image: ; */
+
+        }
+
+
+        nav>div:hover {
+            border-bottom: 2px solid rgb(222, 87, 229);
+            text-shadow: 2px 10px 20px rgb(222, 87, 229);
+
+        }
+
+        #mid-images>div:nth-child(1)>img {
+            width: 100%;
+        }
+
+        #mid-images>div:nth-child(1)>img:hover {
+            cursor: pointer;
+        }
+
+        #mid-images {
+            margin-top: 9rem;
+        }
+
+        #shaya-images {
+            width: 95%;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 400px);
+            gap: 2rem;
+            margin: 1.5rem auto;
+
+
+        }
+
+        #shaya-images>div>img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        #shaya-images>div:nth-child(1) {
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+
+        #shaya-images img:hover {
+            cursor: pointer;
+        }
+
+        /* Rings six images */
+        #rings {
+            display: grid;
+            width: 95%;
+            margin: auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        #rings>div {
+            transition: 1s;
+        }
+
+        #rings>div:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            z-index: 1;
+
+        }
+
+        #rings img {
+            width: 100%;
+
+        }
+
+        /*  three view all collection images  and collection button*/
+        #collection {
+            width: 95%;
+            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            margin: 4rem auto 1rem auto;
+            display: grid;
+
+
+
+        }
+
+        #collection>div:nth-child(1),
+        #collection>div:nth-child(3) {
+            margin-top: 3rem;
+        }
+
+        #collection>div>img {
+            width: 100%;
+
+
+            transition: transform 0.5s;
+            display: block;
+        }
+
+        #collection>div>img:hover {
+            cursor: pointer;
+
+            transform: scale(1.1);
+            border-radius: 1rem;
+
+        }
+
+        #collection>div {
+            overflow: hidden;
+        }
+
+
+
+
+        #collection-btn {
+            text-align: center;
+        }
+
+        #collection-btn button {
+            padding: 0.7rem;
+            font-size: 1rem;
+            background-color: transparent;
+            border-color: rgb(222, 87, 229);
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        #collection-btn button:hover {
+            cursor: pointer;
+        }
+
+        /* sale,discount and location images */
+        #sale-Images {
+            width: 95%;
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            margin: 4rem auto 1rem auto;
+        }
+
+        #sale-Images>div>img {
+            width: 100%;
+        }
+
+        /* exchange-heading  */
+        #exchange-title {
+            background-color: #eeeeee;
+        }
+
+        #exchange-heading {
+            width: 95%;
+            margin: auto;
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        #exchange-heading>div:nth-child(1) {
+            width: 100%;
+            text-align: center;
+        }
+
+
+
+        #exchange-heading>div:nth-child(2) {
+            padding: 4rem 1.5rem;
+
+        }
+
+        #exchange-heading>div:nth-child(2)>button {
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(to right, rgb(222, 87, 229), rgb(136, 99, 251));
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #exchange-heading>div:nth-child(2)>h1 {
+            font-size: 2rem;
+        }
+
+        .line-1 {
+            display: inline-block;
+            vertical-align: top;
+            width: 64px;
+            height: 1px;
+            background: linear-gradient(to left, #8863fb, #de57e5);
+            border: none;
+            margin-left: 0;
+        }
+
+
+        .line-2 {
+            display: inline-block;
+            vertical-align: top;
+            width: 12px;
+            height: 1px;
+            background: #8863fb;
+            border: none;
+            margin-left: 8px;
+        }
+
+        #spirit-CaratLane-title {
+            background-color: rgb(35, 21, 53);
+            margin: 2rem 0px;
+            padding: 2rem;
+        }
+
+        #spirit-CaratLane {
+            width: 23%;
+            margin: auto;
+            text-align: center;
+        }
+
+        #spirit-CaratLane>img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 0px;
+
+        }
+
+        #spirit-CaratLane>img+p {
+            margin-top: 0px;
+            color: rgb(196, 173, 225);
+        }
+
+        #spirit-CaratLane>button {
+            padding: 0.7rem 1rem;
+            background-color: rgb(35, 21, 53);
+            color: white;
+            border-color: rgb(161 130 201);
+        }
+
+        #spirit-CaratLane>button:hover {
+            cursor: pointer;
+
+        }
+
+        /* <!-- product displays --> */
+        #cartLane-product-heading {
+            width: 95%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #product-heading-right {
+
+            padding: 0.7rem 0rem;
+            border: 1px solid rgb(136, 99, 251)
+        }
+
+        #product-heading-right>span {
+
+            padding: 0.7rem 45px;
+
+            margin: auto 0px;
+        }
+
+        #product-heading-right>span:hover {
+            cursor: pointer;
+
+        }
+
+        #product-display {
+            width: 95%;
+            margin: auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 2rem;
+
+        }
+
+        #product-display>div:hover {
+            cursor: pointer;
+
+        }
+
+        .product-img {
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        }
+
+        .product-text {
+            padding: 0px 1rem;
+            margin-top: 1rem;
+        }
+
+        .product-text>h2,
+        .product-text>h3 {
+            display: inline;
+            margin: 2rem 1rem 0px 0px;
+        }
+
+        .product-text>h3 {
+            text-decoration: line-through;
+            font-size: 1rem;
+        }
+
+        #product-display>div {
+            width: 100%;
+        }
+
+        #product-display img {
+            width: 100%;
+            height: 250px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section id="navbar">
+        <div id="top-nav">
+            Introducing CaratLane PoP! Plan your purchase
+        </div>
+        <main>
+            <div id="nav-left">
+                <img src="img-index/logo.png" alt="Logo">
+                <div><i class="fa-solid fa-house-user"></i> <a href="#">FREE TRY AT HOME</a></div>
+                <div><i class="fa-sharp fa-solid fa-shop"></i> <a href="#">FIND STORE</a></div>
+                <div><i class="fa-sharp fa-solid fa-briefcase"> </i> <a href="#">PLAN OF PURCHASE</a></div>
+                <div><i class="fa-solid fa-coins"></i><a href="#">BUY DIGITAL GOLD </a></div>
+            </div>
+
+            <!-- right nav -->
+            <div id="nav-right">
+
+                <form>
+
+                    <input type="text" placeholder="search"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                </form>
+
+
+
+
+                <p><i class="fa-solid fa-location-dot"></i> pincode</p>
+
+                <div>
+                    <img src="https://www.mapsofindia.com/maps/india/india-flag.jpg" alt="Indian flag">
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <div>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- bottom Navbar -->
+        <nav>
+            <div><a href="#">NEW ARRIVALS</a></div>
+            <div><a href="#">RINGS</a></div>
+            <div><a href="#">EARRINGS</a></div>
+            <div><a href="#">BRACELETS &amp; BANGLES</a></div>
+            <div><a href="#">SOLITAIRES</a></div>
+            <div><a href="#">MANGALSUTRA</a></div>
+            <div><a href="#">READY TO SHIP</a></div>
+            <div><a href="#">KIDS</a></div>
+            <div><a href="#">OTHER JEWELLERY</a></div>
+            <div><a href="#">GIFTING</a></div>
+        </nav>
+    </section>
+
+    <section id="mid-images">
+        <div>
+            <img src="https://cdn.caratlane.com/media/static/images/V4/2023/CL/01-JAN/AppBanner/Blaze/01/Desktop_1920x694.jpg"
+                alt="images">
+
+        </div>
+    </section>
+    <div id="shaya-images">
+        <div>
+            <img src="https://cdn.caratlane.com/media/static/images/V4/2022/Shaya/10_OCT/11_10_2022/Revised/Responsive-Banner.jpg"
+                alt="image">
+
+        </div>
+        <div>
+            <img src="https://cdn.caratlane.com/media/static/images/V4/2023/CL/01-JAN/HP-Banner/JustArrived/1X.jpg"
+                alt="">
+
+        </div>
+        <div>
+
+            <img src="https://cdn.caratlane.com/media/static/images/V4/2023/CL/01-JAN/AppBanner/Festive/01/2X.jpg"
+                alt="">
+        </div>
+
+    </div>
+
+    <!-- six images of gold rings -->
+    <div id="rings">
+        <div>
+            <img src="https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_5.jpg"
+                alt="">
+        </div>
+        <div>
+            <img src="https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_1.jpg"
+                alt="">
+        </div>
+        <div>
+            <img src="	https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_2.jpg"
+                alt="">
+        </div>
+        <div>
+            <img src="https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_7.jpg"
+                alt="">
+        </div>
+        <div>
+            <img src="https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_6.jpg"
+                alt="">
+        </div>
+        <div>
+            <img src="	https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_3.jpg"
+                alt="">
+        </div>
+    </div>
+
+    <!-- three view all collection images -->
+    <div id="collection">
+        <div><img
+                src="https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/Collection/02/Collection_Borla.jpg"
+                alt=""></div>
+        <div><img
+                src="https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/Collection/02/Collection_Mogra.jpg"
+                alt="">
+            <div id="collection-btn">
+
+                <button>View All Collections</button>
+
+            </div>
+        </div>
+        <div><img
+                src="https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/Collection/02/Collection_Harmony.jpg"
+                alt=""></div>
+    </div>
+
+    <!-- location images and discount and sale -->
+
+    <section id="sale-Images">
+        <div>
+            <img src="https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/AppBanner/Personal/03/2X.jpg"
+                alt="">
+
+        </div>
+        <div>
+            <img src="https://cdn.caratlane.com/media/static/images/V4/2023/CL/01-JAN/AppBanner/Offer/02/2x.jpg" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.caratlane.com/media/static/images/V4/2023/CL/01-JAN/HP-Banner/RTS/2x.gif" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.caratlane.com/media/static/images/V4/2023/CL/01-JAN/AppBanner/Sale/01/2x.gif" alt="">
+        </div>
+    </section>
+
+    <!-- section exchange text and images -->
+    <section id="exchange-title">
+        <div id="exchange-heading">
+            <div>
+                <img src="https://cdn.caratlane.com/media/static/images/V4/2022/CL/11-NOV/Others/13/OLD-GOLD_.png"
+                    alt="">
+            </div>
+            <div>
+                <h1>Your precious gold. Our new designs!</h1>
+                <span class="line-1"></span>
+                <span class="line-2"></span>
+                <p>- A Gold Exchange Program that lets you preserve your memories and make new ones! Please note: The
+                    old
+                    gold doesn’t have
+                    to be from only CaratLane, it can be any gold jewellery you have.</p>
+                <button>Know More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- spirit of CaratLane -->
+
+    <section id="spirit-CaratLane-title">
+        <div id="spirit-CaratLane">
+            <img src="https://images.cltstatic.com/live-images/c656a495c4564a4c8ac8a1f5dee414bd.png" alt="">
+            <p>The highest quality of craftsmanship and innovation,
+                that brings you modern, everyday designs.</p>
+            <button>Know More</button>
+
+        </div>
+
+    </section>
+
+    <!-- product title -->
+    <section id="cartLane-product-heading">
+        <div id="product-heading-left">
+            <h2>Best of CartLane</h2>
+            <span class="line-1"></span>
+            <span class="line-2"></span>
+        </div>
+        <div id="product-heading-right">
+            <span>Women</span><span>Men</span>
+
+        </div>
+
+    </section>
+
+    <!-- product display -->
+
+    <section id="product-display">
+
+    </section>
+
+    <!-- customer message -->
+    <section id="cs-review">
+
+    </section>
+
+
+
+
+
+
+
+
+</body>
+<script src="https://kit.fontawesome.com/cbfe85fe31.js" crossorigin="anonymous"></script>
+<script>
+    let productDisplay = document.querySelector("#product-display")
+    let productheadingSpan = document.querySelectorAll("#product-heading-right>span");
+    let csReview = document.querySelector("#cs-review");
+
+    let arr = []
+    async function getData() {
+        let url = `https://fakestoreapi.com/products/category/jewelery`
+        let request = await fetch(url);
+        let received = await request.json();
+        arr = received
+        displayProduct(arr)
+
+    }
+    function displayProduct(data) {
+        productDisplay.innerHTML = '';
+        data.forEach(element => {
+            let div1 = document.createElement("div");
+            let div2 = document.createElement("div");
+            let div3 = document.createElement("div");
+            div2.classList.add("product-img")
+            div3.classList.add("product-text")
+            let image = document.createElement("img")
+            let price = document.createElement("h2");
+            let priceDiscount = document.createElement("h3");
+            let description = document.createElement("p")
+
+            priceDiscount.classList.add("neglect-price");
+            image.setAttribute("src", element.image);
+            price.innerText = `₹ ${element.price}`;
+            priceDiscount.innerText = `₹${element.price + 1500}`;
+            description.innerText = element.description;
+            div2.append(image);
+            div3.append(price, priceDiscount, description)
+            div1.append(div2, div3);
+            productDisplay.append(div1)
+
+        });
+    }
+
+    // man women hover effect
+    productheadingSpan.forEach(element => {
+        element.addEventListener("mouseover", () => {
+            element.style.background = ''
+            element.style.background = `linear-gradient(to right, rgb(222, 87, 229), rgb(136, 99, 251))`
+        })
+        element.addEventListener("mouseout", () => {
+            element.style.background = ''
+
+        })
+    });
+
+    // cs Review section
+    let csReviwArr = [
+        {
+            name: `- Tanya Gupta via Instagram`,
+            review: ` “I got this necklace as my wedding gift and instantly loved it. It is literally the only accessory I wore on my entire honeymoon. I love how delicate and beautiful it is.”`
+        },
+        {
+            name: `- Shilpa Praveen via Instagram`,
+            review: `”The six of us wanted to celebrate our year of togetherness with something which will stay with us forever. So, all of us bought this beautiful ring which is the perfect symbol of our friendship and is just so classy!”`
+        },
+        {
+            name: `- Pooja Rajpoot via Instagram`,
+            review: `”My fiance wanted to give me something classic and unique. He searched everywhere, literally half of the Chandigarh for the unique design. Our search was complete when we entered CaratLane store. My fiance selected the diamond and I selected the design. I love it because it is designed just for me.”`
+        },
+
+
+    ]
+    setInterval(() => {
+     let csReviewDiv = document.createElement("div");
+     let review = document.createElement("p");
+     let csName = document.createElement("p")
+    }, 5000);
+
+
+    getData()
+</script>
+
+</html>
