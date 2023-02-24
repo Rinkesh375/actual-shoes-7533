@@ -80,15 +80,20 @@
                     rgb(222, 87, 229),
                     rgb(136, 99, 251));
             color: white;
-            padding: 0.4rem 1rem 0.5rem 1rem ;
+            padding: 0.4rem 1rem 0.5rem 1rem;
             border-top-right-radius: 5px;
             border-bottom-right-radius: 5px;
+        }
+
+        form .fa-sharp:hover {
+            cursor: pointer;
         }
 
         form input {
             border-right: none;
             padding: 0.3rem 1rem;
         }
+
         form input:focus {
             outline: none;
         }
@@ -380,9 +385,10 @@
             align-items: center;
             gap: 2rem;
         }
-        #product-display>a{
+
+        #product-display>a {
             color: black;
-        } 
+        }
 
 
         #product-display>a>div:hover {
@@ -409,13 +415,13 @@
 
         .product-text>h2,
         .product-text>h3 {
-            
+
             display: inline;
             margin: 2rem 1rem 0px 0px;
         }
 
         .product-text>h3 {
-           text-decoration: line-through;
+            text-decoration: line-through;
         }
 
 
@@ -720,21 +726,26 @@
             color: black;
             font-size: 1.2rem;
         }
-        #user-login>a,#shop-cart>a{
+
+        #user-login>a,
+        #shop-cart>a {
             color: black;
         }
+
         form input:focus {
             outline: none;
         }
-        @media screen and (max-width:1850px){
-             #nav-right>div {
-            padding: 0 0.5rem;
+
+        @media screen and (max-width:1850px) {
+            #nav-right>div {
+                padding: 0 0.5rem;
+            }
         }
-        }
-        @media screen and (max-width:1520px){
-             #nav-right>div {
-            padding: 0 0.2rem;
-        }
+
+        @media screen and (max-width:1520px) {
+            #nav-right>div {
+                padding: 0 0.2rem;
+            }
         }
     </style>
 </head>
@@ -781,14 +792,14 @@
                     <i class="fa-solid fa-heart"></i>
                 </div>
                 <div id="shop-cart">
-                    <a href="cartPage.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="cartPage.html" target="_blank"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
             </div>
         </main>
 
         <!-- bottom Navbar -->
         <nav>
-            <div><a href="#">NEW ARRIVALS</a></div>
+            <div><a href="All product page.html" target="_blank">NEW ARRIVALS</a></div>
             <div><a href="#">RINGS</a></div>
             <div><a href="#">EARRINGS</a></div>
             <div><a href="#">BRACELETS &amp; BANGLES</a></div>
@@ -1180,15 +1191,14 @@
 <script src="https://kit.fontawesome.com/cbfe85fe31.js" crossorigin="anonymous"></script>
 <script>
     let productDisplay = document.querySelector("#product-display");
-    let productheadingSpan = document.querySelectorAll(
-        "#product-heading-right>span"
-    );
-
+    let productheadingSpan = document.querySelectorAll("#product-heading-right>span");
     let csReview = document.querySelector("#cs-review");
+
+
 
     let arr =
         [{
-            id:1,
+            id: 1,
             image: "https://cdn.caratlane.com/media/catalog/product/U/T/UT00168-YG0000_1_lar.jpg",
             discountPrice: 8359,
             actualPrice: 8868,
@@ -1196,7 +1206,7 @@
         },
 
         {
-             id: 2,
+            id: 2,
             image: "https://cdn.caratlane.com/media/catalog/product/U/T/UT00167-YG0000_1_lar.jpg",
             discountPrice: 7855,
             actualPrice: 8365,
@@ -1204,7 +1214,7 @@
         },
 
         {
-             id: 3,
+            id: 3,
             image: "https://cdn.caratlane.com/media/catalog/product/J/E/JE03938-YGP600_1_lar.jpg",
             discountPrice: 8421,
             actualPrice: 10527,
@@ -1212,7 +1222,7 @@
         },
 
         {
-             id: 4,
+            id: 4,
             image: "https://cdn.caratlane.com/media/catalog/product/J/E/JE06187-1RP600_1_lar.jpg",
             discountPrice: 9396,
             actualPrice: 11744,
@@ -1220,7 +1230,7 @@
         },
 
         {
-             id: 5,
+            id: 5,
             image: "https://cdn.caratlane.com/media/catalog/product/J/T/JT01170-1RP600_1_lar.jpg",
             discountPrice: 8702,
             actualPrice: 10237,
@@ -1228,7 +1238,7 @@
         },
 
         {
-             id: 6,
+            id: 6,
             image: "https://cdn.caratlane.com/media/catalog/product/U/E/UE04499-1Y0000_1_lar.jpg",
             discountPrice: 5800,
             actualPrice: 6243,
@@ -1237,7 +1247,7 @@
 
 
         {
-             id: 7,
+            id: 7,
             image: "https://cdn.caratlane.com/media/catalog/product/J/N/JN00048-YGP900_1_lar.jpg",
             discountPrice: 7111,
             actualPrice: 7901,
@@ -1248,8 +1258,8 @@
 
 
 
-            {
-             id: 8,
+        {
+            id: 8,
             image: "https://cdn.caratlane.com/media/catalog/product/U/P/UP00899-1Y0000_1_lar.jpg",
             discountPrice: 7586,
             actualPrice: 7895,
@@ -1258,7 +1268,7 @@
 
 
         {
-             id: 9,
+            id: 9,
             image: "https://cdn.caratlane.com/media/catalog/product/U/T/UT00684-1Y0000_1_lar.jpg",
             discountPrice: 7191,
             actualPrice: 7500,
@@ -1376,6 +1386,7 @@
     // cs Review section
     let csReviewDiv = document.querySelector("#cs-review>div:nth-child(2)");
     let inputs = document.querySelectorAll("#cs-review input");
+
     function displayTextSlider(index) {
         let csReviwArr = [
             {
@@ -1429,6 +1440,11 @@
         paraNotified.innerText = `You'll be the first one to know about our new arrivals, amazing offers and everything else!`;
         formNewArrival.append(h2Thank, paraNotified);
     });
+
+
+    
+  
+
 
 </script>
 

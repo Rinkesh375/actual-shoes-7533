@@ -85,7 +85,10 @@
             border-top-right-radius: 5px;
             border-bottom-right-radius: 5px;
         }
-
+        form .fa-sharp:hover{
+            cursor: pointer;
+        }
+        
         form input {
             border-right: none;
             padding: 0.3rem 1rem;
@@ -355,7 +358,7 @@
 
         <!-- bottom Navbar -->
         <nav>
-            <div><a href="#">NEW ARRIVALS</a></div>
+            <div><a href="All product page.html" target="_blank">NEW ARRIVALS</a></div>
             <div><a href="#">RINGS</a></div>
             <div><a href="#">EARRINGS</a></div>
             <div><a href="#">BRACELETS &amp; BANGLES</a></div>
@@ -515,18 +518,18 @@
 
     // for right side amount discount and delivery charges
     function rightDisplay() {
-        let totalAmount = 0
-        let paid = 0
+        let totalWithOutDiscount = 0
+        let totalWithDiscount = 0
         value = JSON.parse(localStorage.getItem("qty")) || []
         cartArr.forEach((element, index) => {
             let currentqty = +value[index]
-            totalAmount = totalAmount + currentqty * element.actualPrice;
-            paid = paid + currentqty * element.discountPrice;
+         totalWithOutDiscount = totalWithOutDiscount + currentqty * element.actualPrice;
+            totalWithDiscount = totalWithDiscount + currentqty * element.discountPrice;
         });
-        totalValue.innerText = `₹ ${totalAmount}`
-        paidAmount.innerText = `₹ ${paid}`
-        discountValue.innerText = `₹ ${totalAmount - paid}`
-        savedValue.innerText = `₹ ${totalAmount - paid}`
+        totalValue.innerText = `₹ ${totalWithOutDiscount}`
+        paidAmount.innerText = `₹ ${totalWithDiscount}`
+        discountValue.innerText = `₹ ${totalWithOutDiscount - totalWithDiscount}`
+        savedValue.innerText = `₹ ${totalWithOutDiscount - totalWithDiscount}`
 
     }
     rightDisplay(cartArr)
